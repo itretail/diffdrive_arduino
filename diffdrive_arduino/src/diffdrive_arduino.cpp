@@ -133,8 +133,8 @@ hardware_interface::return_type DiffDriveArduino::write(
 
   //arduino_.setMotorValues(l_wheel_.cmd / l_wheel_.rads_per_count / cfg_.loop_rate, r_wheel_.cmd / r_wheel_.rads_per_count / cfg_.loop_rate);
   // Send actual velocitys rather than encoders counts per second
-    arduino_.setMotorValues(l_wheel_.cmd , r_wheel_.cmd );
-  // as my Ros-roomba-bridge is expecting mm/sec
+    arduino_.setMotorValues(l_wheel_.cmd * 1000, r_wheel_.cmd * 1000);
+  // as my Ros-roomba-bridge is expecting mm/sec multiply cmd_vel by 1000
 
 
 

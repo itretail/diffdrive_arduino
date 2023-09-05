@@ -11,7 +11,7 @@ struct Config
   float loop_rate = 30;
   std::string device = "/dev/ttyUSB0";
   int baud_rate = 57600;
-  int timeout = 1000;
+  int timeout = 200;
   int enc_counts_per_rev = 1920;
 };
 

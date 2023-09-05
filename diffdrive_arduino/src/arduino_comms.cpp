@@ -19,12 +19,12 @@ void ArduinoComms::setup(const std::string &serial_device, int32_t baud_rate, in
 
 void ArduinoComms::sendEmptyMsg()
 {
-    std::string response = sendMsg("\r");
+    std::string response = sendMsg("\n");
 }
 
 void ArduinoComms::readEncoderValues(int &val_1, int &val_2)
 {
-    std::string response = sendMsg("e\r");
+    std::string response = sendMsg("e\n");
 
     std::string delimiter = " ";
     size_t del_pos = response.find(delimiter);
@@ -38,14 +38,14 @@ void ArduinoComms::readEncoderValues(int &val_1, int &val_2)
 void ArduinoComms::setMotorValues(int val_1, int val_2)
 {
     std::stringstream ss;
-    ss << "m " << val_1 << " " << val_2 << "\r";
+    ss << "m " << val_1 << " " << val_2 << "\n";
     sendMsg(ss.str(), false);
 }
 
 void ArduinoComms::setPidValues(float k_p, float k_d, float k_i, float k_o)
 {
     std::stringstream ss;
-    ss << "u " << k_p << ":" << k_d << ":" << k_i << ":" << k_o << "\r";
+    ss << "u " << k_p << ":" << k_d << ":" << k_i << ":" << k_o << "\n";
     sendMsg(ss.str());
 }
 

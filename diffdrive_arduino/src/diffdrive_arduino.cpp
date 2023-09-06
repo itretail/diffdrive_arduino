@@ -131,10 +131,10 @@ hardware_interface::return_type DiffDriveArduino::write(
     return return_type::ERROR;
   }
 
-  // arduino_.setMotorValues(l_wheel_.cmd / l_wheel_.rads_per_count / cfg_.loop_rate, r_wheel_.cmd / r_wheel_.rads_per_count / cfg_.loop_rate);
-  // Send actual velocitys rather than encoders counts per second
-  //arduino_.setCmdValues(l_wheel_.cmd / l_wheel_.rads_per_count / cfg_.loop_rate, r_wheel_.cmd / r_wheel_.rads_per_count / cfg_.loop_rate);
-    arduino_.setMotorValues(l_wheel_.cmd , r_wheel_.cmd );
+  //Multiply cmd_vel x and z commands by wheel radius 0.036
+  // to give metres/sec, then by 1000 to give mm/sec
+  // as used by roomba library (to simplyfy just multiply by 36)
+    arduino_.setMotorValues(l_wheel_.cmd * 36.0, r_wheel_.cmd * 36.0);
   // as my Ros-roomba-bridge is expecting mm/sec multiply cmd_vel by 1000
 
 

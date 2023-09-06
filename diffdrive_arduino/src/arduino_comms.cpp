@@ -35,7 +35,7 @@ void ArduinoComms::readEncoderValues(int &val_1, int &val_2)
     val_2 = std::atoi(token_2.c_str());
 }
 
-void ArduinoComms::setMotorValues(int val_1, int val_2)
+void ArduinoComms::setMotorValues(double val_1, double val_2)
 {
     std::stringstream ss;
     ss << "m " << val_1 << " " << val_2 << "\n";

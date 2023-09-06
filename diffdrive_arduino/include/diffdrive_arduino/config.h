@@ -12,7 +12,7 @@ struct Config
   std::string device = "/dev/ttyUSB0";
   int baud_rate = 57600;
   int timeout = 200;
-  int enc_counts_per_rev = 1920;
+  int enc_counts_per_rev = 508.8;
 };
 
 

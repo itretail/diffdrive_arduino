@@ -42,6 +42,15 @@ void ArduinoComms::setMotorValues(int val_1, int val_2)
     sendMsg(ss.str(), false);
 }
 
+
+void ArduinoComms::setCmdValues(double val_l, double val_r)
+{
+    std::stringstream ss;
+    ss << "cmd " << val_l << " " << val_r << "\n";
+    sendMsg(ss.str(), false);
+
+}
+
 void ArduinoComms::setPidValues(float k_p, float k_d, float k_i, float k_o)
 {
     std::stringstream ss;
